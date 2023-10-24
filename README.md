@@ -104,3 +104,9 @@ df_exportacao_total[df_exportacao_total['subcategoria'] == 'Espumante']
 - id: Identificador único.
 - produto: Tipo de produto produzido.
 - 1970 a 2021: Quantidade produzida de cada produto para cada ano.
+
+----
+## Próximos passos
+- Perfurmaria Gráficos: Sergio e Bruna
+- Datasets novos: Lucas (Dados Climáticos, Dados Economicos: Poder aquisitivo dos países consumidores)
+- Estudo de correlações: Pietro e Maiara
