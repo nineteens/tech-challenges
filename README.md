@@ -105,6 +105,15 @@ df_exportacao_total[df_exportacao_total['subcategoria'] == 'Espumante']
 - produto: Tipo de produto produzido.
 - 1970 a 2021: Quantidade produzida de cada produto para cada ano.
 
+### DataFrames Genéricos
+`df_temperaturas`
+- Country: País.
+- Year: Ano.
+- AvgTemperature: Temperatura média registrada.
+
+Fonte: https://www.kaggle.com/datasets/subhamjain/temperature-of-all-countries-19952020/data
+
+
 ----
 ## Próximos passos
 - Perfurmaria Gráficos: Sergio e Bruna
