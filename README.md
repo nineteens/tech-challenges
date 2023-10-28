@@ -113,6 +113,32 @@ df_exportacao_total[df_exportacao_total['subcategoria'] == 'Espumante']
 
 Fonte: https://www.kaggle.com/datasets/subhamjain/temperature-of-all-countries-19952020/data
 
+`df_expectativa_vida`
+- Country: País de origem dos dados. Tipo de dado: object (string).
+- Year: Ano em que os dados foram registrados. Tipo de dado: int64.
+- Status: Status do país (pode ser desenvolvido ou em desenvolvimento). Tipo de dado: object (string).
+- Life expectancy: Expectativa de vida média da população. Tipo de dado: float64.
+- Adult Mortality: Taxa de mortalidade de adultos. Tipo de dado: float64.
+- Infant deaths: Número de mortes de bebês (menores de um ano). Tipo de dado: int64.
+- Alcohol: Consumo de álcool per capita. Tipo de dado: float64.
+- Percentage expenditure: Porcentagem de gastos. Tipo de dado: float64.
+- Hepatitis B: Cobertura de vacinação contra Hepatite B. Tipo de dado: float64.
+- Measles: Número de casos de sarampo. Tipo de dado: int64.
+- BMI: Índice de massa corporal médio da população. Tipo de dado: float64.
+- Under-five deaths: Número de mortes de crianças menores de cinco anos. Tipo de dado: int64.
+- Polio: Cobertura de vacinação contra poliomielite. Tipo de dado: float64.
+- Total expenditure: Gasto total em saúde como uma porcentagem do PIB. Tipo de dado: float64.
+- Diphtheria: Cobertura de vacinação contra difteria, tétano e coqueluche. Tipo de dado: float64.
+- HIV/AIDS: Número de mortes por HIV/AIDS. Tipo de dado: float64.
+- GDP: Produto Interno Bruto per capita. Tipo de dado: float64.
+- Population: População do país. Tipo de dado: float64.
+- Thinness 1-19 years: Prevalência de magreza em crianças e adolescentes de 10 a 19 anos. Tipo de dado: float64.
+- Thinness 5-9 years: Prevalência de magreza em crianças de 5 a 9 anos. Tipo de dado: float64.
+- Income composition of resources: Índice de Desenvolvimento Humano em termos de composição de renda. Tipo de dado: float64.
+- Schooling: Número médio de anos de escolaridade. Tipo de dado: float64.
+
+Fonte: https://www.kaggle.com/datasets/kumarajarshi/life-expectancy-who/data
+
 
 ----
 ## Próximos passos
