@@ -139,6 +139,25 @@ Fonte: https://www.kaggle.com/datasets/subhamjain/temperature-of-all-countries-1
 
 Fonte: https://www.kaggle.com/datasets/kumarajarshi/life-expectancy-who/data
 
+`df_alcool_consumo`
+
+Este dataframe consolida as informações sobre o consumo de álcool em 189 países, baseando-se nos dados do relatório da OMS de 2016, publicado em 2018. A metodologia utilizada pela OMS calculou o uso por pessoas com 15 anos de idade ou mais. Todos os dados nas colunas referem-se ao ano de 2016.
+
+O consumo não registrado (bebidas caseiras, álcool contrabandeado, álcool surrogate, etc.) foi calculado usando julgamentos de especialistas e pesquisas. O total é a soma do consumo registrado e não registrado. As próximas quatro colunas são uma divisão do consumo de álcool registrado por tipo. Cerveja refere-se a cerveja de malte, vinho refere-se a vinho de uva, destilados refere-se a todas as bebidas destiladas, como vodka e produtos similares, e a coluna "outros" refere-se a todas as outras bebidas alcoólicas, como vinho de arroz, soju, saquê, hidromel, kumis, cidra, kvass, e cervejas africanas (kumi kumi, kwete, banana beer, millet beer, umqombothi, etc.). O consumo mundial em 2016 foi igual a 6,4 litros de álcool puro consumidos por pessoa com 15 anos ou mais.
+
+- country: País.
+- total_consumption: Total de litros de álcool consumidos.
+- recorded_consumption: Total de litros de álcool registrados.
+- unrecorded_consumption: Total de litros de álcool não registrados.
+- beer_percentage: Percentagem de cerveja no total de álcool registrado.
+- wine_percentage: Percentagem de vinho no total de álcool registrado.
+- spirits_percentage: Percentagem de destilados no total de álcool registrado.
+- other_percentage: Percentagem de outras bebidas alcoólicas no total de álcool registrado.
+- 2020_projection: Projeção do consumo de álcool para 2020.
+- 2025_projection: Projeção do consumo de álcool para 2025.
+
+Fonte: https://www.kaggle.com/datasets/mattop/alcohol-consumption-per-capita-2016
+
 
 ----
 ## Próximos passos
