@@ -139,7 +139,7 @@ Fonte: https://www.kaggle.com/datasets/subhamjain/temperature-of-all-countries-1
 
 Fonte: https://www.kaggle.com/datasets/kumarajarshi/life-expectancy-who/data
 
-`df_alcool_consumo`
+`df_alco_cons_2016_with_projection`
 
 Este dataframe consolida as informações sobre o consumo de álcool em 189 países, baseando-se nos dados do relatório da OMS de 2016, publicado em 2018. A metodologia utilizada pela OMS calculou o uso por pessoas com 15 anos de idade ou mais. Todos os dados nas colunas referem-se ao ano de 2016.
 
