@@ -160,7 +160,3 @@ Fonte: https://www.kaggle.com/datasets/mattop/alcohol-consumption-per-capita-201
 
 
 ----
-## Próximos passos
-- Perfurmaria Gráficos: Sergio e Bruna
-- Datasets novos: Lucas (Dados Climáticos, Dados Economicos: Poder aquisitivo dos países consumidores)
-- Estudo de correlações: Pietro e Maiara
