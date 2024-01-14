@@ -1,11 +1,23 @@
 import pandas as pd
+from typing import Optional, List
 
 class ProcessadorIbovespa:
-    def __init__(self, caminho_arquivo):
+    def __init__(self, caminho_arquivo: str):
+        """
+        Inicializa a classe ProcessadorIbovespa, lendo os dados do CSV e aplicando o pré-processamento básico.
+
+        :param caminho_arquivo: Caminho do arquivo CSV a ser lido.
+        """
         self.df = pd.read_csv(caminho_arquivo, sep=",")
         self.preprocessar()
 
-    def converter_volume(self, valor):
+    def converter_volume(self, valor: str) -> float:
+        """
+        Converte uma string de volume de negociações para um valor numérico flutuante.
+
+        :param valor: String representando o volume de negociações.
+        :return: Valor de volume convertido para float.
+        """
         if isinstance(valor, float): 
             return valor
         if 'M' in valor:
@@ -15,7 +27,10 @@ class ProcessadorIbovespa:
         else:
             return float(valor.replace(',', '.'))
 
-    def descrever_features(self):
+    def descrever_features(self) -> None:
+        """
+        Imprime a descrição de cada coluna do DataFrame.
+        """
         descricoes = {
             'Data': 'Data da observação.',
             'Último': 'Valor de fechamento do índice no dia.',
@@ -40,7 +55,10 @@ class ProcessadorIbovespa:
         for coluna, descricao in descricoes.items():
             print(f"\033[1m{coluna}\033[0m:\t{descricao}")
     
-    def preprocessar(self):
+    def preprocessar(self) -> None:
+        """
+        Aplica o pré-processamento básico ao DataFrame.
+        """
         self.df['Data'] = pd.to_datetime(self.df['Data'], format='%d.%m.%Y')
         self.df.sort_values('Data', inplace=True)
 
@@ -50,7 +68,12 @@ class ProcessadorIbovespa:
         self.df['Amplitude_Diaria'] = self.df['Máxima'] - self.df['Mínima']
         self.df['Volume_Normalizado'] = (self.df['Vol.'] - self.df['Vol.'].min()) / (self.df['Vol.'].max() - self.df['Vol.'].min())
 
-    def adicionar_features(self, features):
+    def adicionar_features(self, features: List[str]) -> None:
+        """
+        Adiciona features adicionais ao DataFrame com base em uma lista de strings representando as features.
+
+        :param features: Lista de strings representando as features a serem adicionadas.
+        """
         if 'dias_semana' in features:
             self.df['Dia_Semana'] = self.df['Data'].dt.dayofweek
             dias_semana = pd.get_dummies(self.df['Dia_Semana'], prefix='Dia')
@@ -71,7 +94,13 @@ class ProcessadorIbovespa:
             self.df['Media_Movel_5d'] = self.df['Último'].rolling(window=5).mean()
             self.df['Media_Movel_20d'] = self.df['Último'].rolling(window=20).mean()
 
-    def get_dataframe(self, features=None):
+    def get_dataframe(self, features: Optional[List[str]] = None) -> pd.DataFrame:
+        """
+        Retorna o DataFrame processado, com a opção de incluir features adicionais.
+
+        :param features: Lista opcional de strings das features a serem incluídas.
+        :return: DataFrame processado.
+        """
         if features:
             self.adicionar_features(features)
         return self.df
