@@ -11,6 +11,18 @@ class ProcessadorIbovespa:
         self.df = pd.read_csv(caminho_arquivo, sep=",")
         self.preprocessar()
 
+    def tratar_nulos(self):
+        """
+        Trata valores nulos no DataFrame, substituindo-os pela média para colunas numéricas
+        e pela moda para colunas categóricas.
+        """
+        colunas_com_nan = self.df.columns[self.df.isna().any()].tolist()
+        for coluna in colunas_com_nan:
+            if self.df[coluna].dtype == 'float64' or self.df[coluna].dtype == 'int64':
+                self.df[coluna].fillna(self.df[coluna].mean(), inplace=True)
+            elif self.df[coluna].dtype == 'object':
+                self.df[coluna].fillna(self.df[coluna].mode()[0], inplace=True)
+
     def converter_volume(self, valor: str) -> float:
         """
         Converte uma string de volume de negociações para um valor numérico flutuante.
@@ -67,6 +79,8 @@ class ProcessadorIbovespa:
         self.df['Variacao_Diaria_Pontos'] = self.df['Último'] - self.df['Abertura']
         self.df['Amplitude_Diaria'] = self.df['Máxima'] - self.df['Mínima']
         self.df['Volume_Normalizado'] = (self.df['Vol.'] - self.df['Vol.'].min()) / (self.df['Vol.'].max() - self.df['Vol.'].min())
+        self.df['Var%'] = self.df['Var%'].str.replace('%', '').str.replace(',', '.').astype(float)
+
 
     def adicionar_features(self, features: List[str]) -> None:
         """
@@ -93,6 +107,9 @@ class ProcessadorIbovespa:
         if 'medias_moveis' in features:
             self.df['Media_Movel_5d'] = self.df['Último'].rolling(window=5).mean()
             self.df['Media_Movel_20d'] = self.df['Último'].rolling(window=20).mean()
+
+        if 'nulos_tratados' in features:
+            self.tratar_nulos()
 
     def get_dataframe(self, features: Optional[List[str]] = None) -> pd.DataFrame:
         """
